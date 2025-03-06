@@ -24,10 +24,9 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
 
-      - name: Build and Tag Docker Image
-        run: docker build -t my-app:latest .
+      - name: Build Docker Image
+        run: docker build -t stutigambhir/my-app:latest .
       
       - name: Push Docker Image to DockerHub
         run: |
-          docker tag my-app:latest stutigambhir/my-app:latest
           docker push stutigambhir/my-app:latest
